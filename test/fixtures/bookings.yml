@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 9.99
+  start_date: 2018-04-24
+  end_date: 2018-04-24
+  status: false
+
+two:
+  price: 9.99
+  start_date: 2018-04-24
+  end_date: 2018-04-24
+  status: false
