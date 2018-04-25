@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180424084645) do
+ActiveRecord::Schema.define(version: 20180425204647) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "renter_id"
@@ -35,13 +35,15 @@ ActiveRecord::Schema.define(version: 20180424084645) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "entity_id"
-    t.string "entity_type"
+    t.integer "reviewable_id"
+    t.string "reviewable_type"
     t.string "text"
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["entity_id", "entity_type"], name: "index_reviews_on_entity_id_and_entity_type"
+    t.integer "author_id"
+    t.index ["author_id"], name: "index_reviews_on_author_id"
+    t.index ["reviewable_id", "reviewable_type"], name: "index_reviews_on_reviewable_id_and_reviewable_type"
   end
 
   create_table "users", force: :cascade do |t|
