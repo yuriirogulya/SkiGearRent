@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Review do
   #let(:item) { FactoryBot.create :item }
-  let(:review) { FactoryBot.create :review }
+  let(:review) { create :review }
 
   # it "has a valid review factory" do
   #   expect(FactoryBot.build :review).to be_valid
