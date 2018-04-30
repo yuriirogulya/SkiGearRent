@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  get '/city', to: 'cities#index'
-  get '/item', to: 'items#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-end
+  resources :users do
+    resources :user_reviews, controller: 'user_reviews'
+  end
+  resources :items do
+    resources :item_reviews, controller: 'item_reviews'
+  end
+  resources :cities
+  resources :bookings 
+  get '/cities/task/:id', to: 'cities#all_items_in_particular_city'
+  get '/items/task/:id', to: 'items#all_user_items_reviews'
+end 
