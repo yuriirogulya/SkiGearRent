@@ -10,19 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180425204647) do
+ActiveRecord::Schema.define(version: 20180430124754) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "renter_id"
     t.integer "item_id"
-    t.decimal "price"
+    t.integer "price"
     t.date "start_date"
     t.date "end_date"
-    t.boolean "status"
+    t.boolean "completed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_bookings_on_item_id"
     t.index ["renter_id"], name: "index_bookings_on_renter_id"
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade do |t|
@@ -52,6 +58,7 @@ ActiveRecord::Schema.define(version: 20180425204647) do
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "city_id"
   end
 
 end
