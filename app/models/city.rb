@@ -1,10 +1,7 @@
 class City < ApplicationRecord
   has_many :users
+  has_many :items, through: :users
 
   validates :name, presence: true
-  
-  def all_items_in_particular_city
-    self.users.map(&:items)
-  end
 end
 
