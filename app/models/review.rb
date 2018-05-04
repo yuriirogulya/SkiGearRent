@@ -6,7 +6,15 @@ class Review < ApplicationRecord
   validate :custom_validate
 
   def custom_validate
-    
+    if reviewable_type.equal?('Item')
+      unless user.bookings.where(item_id: reviewable_id).exists?
+        errors.add(:review, 'you never booked this item')
+      end
+    elsif reviewable_type.equal?('User')
+      unless Booking.joins(:item).where('items.owner_id' => reviewable_id, 'renter_id' => user.id).exists?
+        errors.add(:review, 'you never dealt with this user')
+      end
+    end
   end
-
 end
+
