@@ -3,10 +3,10 @@ class CreateBookings < ActiveRecord::Migration[5.1]
     create_table :bookings do |t|
       t.integer :renter_id
       t.integer :item_id
-      t.decimal :price
+      t.integer :price
       t.date :start_date
       t.date :end_date
-      t.boolean :status
+      t.boolean :completed
 
       t.timestamps
     end

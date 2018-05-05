@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :reviewable, polymorphic: true
-  belongs_to :user, foreign_key: 'author_id'
+  belongs_to :author, class_name: 'User', foreign_key: 'author_id'
   validates :rating, numericality: { only_integer: true, less_than_or_equal_to: 5 }
   validate :cannot_review_item_you_never_booked, :cannot_review_user_you_never_dealt, on: :create
 
