@@ -6,7 +6,7 @@ class HelloController < ApplicationController
   end
   
   def user_items_reviews
-    @reviews = User.find(params[:id]).reviews
+    @reviews = User.find(params[:id]).item_reviews
     render json: JSON.pretty_generate(@reviews.as_json)
   end
 
