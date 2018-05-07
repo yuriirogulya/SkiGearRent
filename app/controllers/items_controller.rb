@@ -5,13 +5,13 @@ class ItemsController < ApplicationController
   def index
     if params[:page]
       @items = Item.page(page).per(per_page)
-      page_count = (Item.count / per_page.to_f).ceil
+      #page_count = (Item.count / per_page.to_f).ceil
     else
       @items = Item.all
-      page_count = 1
+      #page_count = 1
     end
-    meta = { pages: page_count, records: Item.count }  
-    json_response(@items, meta)
+    #meta = { pages: page_count, records: Item.count }  
+    json_response(@items)
   end
 
   # GET /items/:id
@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   def create
     @user = User.first
     @item = @user.items.create!(item_params)
-    json_response(@item)
+    json_response(@item, :created)
   end
 
   # PUT /items/:id

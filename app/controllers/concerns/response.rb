@@ -1,9 +1,5 @@
 module Response
-  def json_response(object, meta={})
-    if meta.blank?
-      render json: JSON.pretty_generate({ data: object.as_json })
-    else
-      render json: JSON.pretty_generate({ data: object.as_json, meta: meta })
-    end
+  def json_response(object, status = :ok)
+      render json: JSON.pretty_generate({ data: object.as_json, status: status })
   end
 end

@@ -6,3 +6,11 @@ development:
   host: localhost
   username: yurii
   password: helloworld
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: test
+  pool: 5
+  host: localhost
+  username: yurii
+  password: helloworld
