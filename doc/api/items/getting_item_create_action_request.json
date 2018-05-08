@@ -1,0 +1,44 @@
+{
+  "resource": "Items",
+  "resource_explanation": null,
+  "http_method": "POST",
+  "route": "/items?name=item_name",
+  "description": "Getting item create action request",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/items?name=item_name",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+        "name": "item_name"
+      },
+      "request_content_type": "application/json",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\n  \"id\": 4783,\n  \"owner_id\": 427,\n  \"name\": \"item_name\",\n  \"description\": null,\n  \"created_at\": \"2018-05-08T14:34:31.283Z\",\n  \"updated_at\": \"2018-05-08T14:34:31.283Z\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"c4b1ee858d34d7e7a727b73014772a8b\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "7884fbe2-5027-483d-8994-64f666ff3740",
+        "X-Runtime": "0.015956",
+        "Content-Length": "144"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

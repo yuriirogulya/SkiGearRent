@@ -1,0 +1,43 @@
+{
+  "resource": "Items",
+  "resource_explanation": null,
+  "http_method": "POST",
+  "route": "/items?description=item_description",
+  "description": "Getting item create action request without name",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/items?description=item_description",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+        "description": "item_description"
+      },
+      "request_content_type": "application/json",
+      "response_status": 422,
+      "response_status_text": "Unprocessable Entity",
+      "response_body": "{\n  \"errors\": [\n    \"Name can't be blank\"\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Cache-Control": "no-cache",
+        "X-Request-Id": "fcc446fc-89a5-44b6-91b1-0b71028ea9e6",
+        "X-Runtime": "0.011174",
+        "Content-Length": "34"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

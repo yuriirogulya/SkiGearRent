@@ -1,0 +1,54 @@
+{
+  "resource": "Items",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "/items",
+  "description": "Getting all items request",
+  "explanation": null,
+  "parameters": [
+    {
+      "name": "page",
+      "description": "items page number"
+    },
+    {
+      "name": "per_page",
+      "description": "Number of items shown on single page (default 10)"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/items?per_page=3",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+        "per_page": "3"
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[\n  {\n    \"id\": 4750,\n    \"owner_id\": 425,\n    \"name\": \"Output Electric Transmitter\",\n    \"description\": \"Omnis sit sed earum sit quia sit. Voluptate dolore molestias autem cumque numquam fugit enim. Qui quibusdam laboriosam aut voluptatem ut. Assumenda magni cum numquam blanditiis.\",\n    \"created_at\": \"2018-05-08T14:34:31.086Z\",\n    \"updated_at\": \"2018-05-08T14:34:31.086Z\"\n  },\n  {\n    \"id\": 4751,\n    \"owner_id\": 425,\n    \"name\": \"Audible Side Adapter\",\n    \"description\": \"Omnis debitis aut non blanditiis iure id nihil repellat. Placeat optio laboriosam facere iste pariatur vero expedita rem. Nobis unde nihil ipsa explicabo quod architecto.\",\n    \"created_at\": \"2018-05-08T14:34:31.091Z\",\n    \"updated_at\": \"2018-05-08T14:34:31.091Z\"\n  },\n  {\n    \"id\": 4752,\n    \"owner_id\": 425,\n    \"name\": \"Digital HD Compressor\",\n    \"description\": \"Sequi aspernatur rem error quia esse praesentium. Veritatis harum temporibus consequatur voluptatibus aut corrupti eos. Quod cupiditate illum distinctio aut quaerat.\",\n    \"created_at\": \"2018-05-08T14:34:31.095Z\",\n    \"updated_at\": \"2018-05-08T14:34:31.095Z\"\n  }\n]",
+      "response_headers": {
+        "Link": "<http://example.org/items?page=4&per_page=3>; rel=\"last\", <http://example.org/items?page=2&per_page=3>; rel=\"next\"",
+        "Per-Page": "3",
+        "Total": "11",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"ac2cee20392480a797193ad0a240248c\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "99d83e09-da2c-42ce-bf86-5eb874922955",
+        "X-Runtime": "0.005055",
+        "Content-Length": "983"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

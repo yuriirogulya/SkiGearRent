@@ -1,0 +1,43 @@
+{
+  "resource": "Items",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "/items/:items_id",
+  "description": "Getting item request by id",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/items/4739",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"id\": 4739,\n  \"owner_id\": 424,\n  \"name\": \"Input Adapter\",\n  \"description\": \"In occaecati sapiente hic et aliquam nemo. Unde assumenda et veritatis nisi vel. Voluptates assumenda tenetur voluptatem totam unde dolore qui. Neque aut dicta dolor earum velit.\",\n  \"created_at\": \"2018-05-08T14:34:31.013Z\",\n  \"updated_at\": \"2018-05-08T14:34:31.013Z\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"905c681ac06da1dc4dc066b16592b42c\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "d26a79f1-ceec-4a23-b110-70297806f117",
+        "X-Runtime": "0.007404",
+        "Content-Length": "324"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

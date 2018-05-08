@@ -3,33 +3,33 @@ class ItemsController < ApplicationController
 
   # GET /items
   def index
-    if params[:page]
-      @items = Item.page(page).per(per_page)
-      #page_count = (Item.count / per_page.to_f).ceil
-    else
-      @items = Item.all
-      #page_count = 1
-    end
-    #meta = { pages: page_count, records: Item.count }  
-    json_response(@items)
+    items = Item.all 
+    paginate json: items.as_json, status: :ok
   end
 
   # GET /items/:id
   def show  
-    json_response(@item)
+    render json: @item.as_json, status: :ok
   end
 
   # POST /items
   def create
-    @user = User.first
-    @item = @user.items.create!(item_params)
-    json_response(@item, :created)
+    user = User.first
+    item = user.items.new(item_params)
+    if item.save
+      render json: item.as_json, status: :created
+    else
+      render json: { errors: item.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   # PUT /items/:id
   def update
-    @item.update(item_params)
-    head :no_content
+    if item.update(item_params)
+      head :no_content
+    else
+      render json: { errors: item.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   #DELETE /items/:id
@@ -46,14 +46,6 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
-  end
-
-  def page
-    @page ||= params[:page] || 1
-  end
-
-  def per_page
-    @per_page ||= params[:per_page] || 5
-  end
+  end 
 end
 

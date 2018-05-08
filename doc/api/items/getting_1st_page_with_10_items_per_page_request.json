@@ -1,0 +1,46 @@
+{
+  "resource": "Items",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "/items",
+  "description": "Getting 1st page with 10 items per page request",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/items",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[\n  {\n    \"id\": 4761,\n    \"owner_id\": 426,\n    \"name\": \"Electric Output Controller\",\n    \"description\": \"Eaque sit doloremque iure necessitatibus hic nulla iusto. Laboriosam minus voluptatem iste rem. Voluptatem quasi in eum id. Sit optio voluptatem enim accusamus eaque.\",\n    \"created_at\": \"2018-05-08T14:34:31.159Z\",\n    \"updated_at\": \"2018-05-08T14:34:31.159Z\"\n  },\n  {\n    \"id\": 4762,\n    \"owner_id\": 426,\n    \"name\": \"HD Side Adapter\",\n    \"description\": \"Alias quasi repellat ipsam consequuntur officiis at sapiente. Aperiam et porro et dolorum quod. Voluptatem velit at non sed. Quia quos excepturi alias officia saepe vero sapiente.\",\n    \"created_at\": \"2018-05-08T14:34:31.164Z\",\n    \"updated_at\": \"2018-05-08T14:34:31.164Z\"\n  },\n  {\n    \"id\": 4763,\n    \"owner_id\": 426,\n    \"name\": \"Performance Digital Kit\",\n    \"description\": \"Quam est laboriosam ad unde. Nihil et autem officia vel quidem reiciendis nesciunt. Cupiditate tempore sit ipsam autem. Ipsa illo modi hic illum veritatis qui adipisci et. Non laboriosam molestiae dolorem molestias quae corrupti aperiam.\",\n    \"created_at\": \"2018-05-08T14:34:31.169Z\",\n    \"updated_at\": \"2018-05-08T14:34:31.169Z\"\n  },\n  {\n    \"id\": 4764,\n    \"owner_id\": 426,\n    \"name\": \"Performance Remote Viewer\",\n    \"description\": \"Iste iusto eum dicta atque asperiores culpa aspernatur libero. Accusantium officiis omnis provident voluptas dolores eos maxime assumenda. In dolor vero iure possimus quibusdam.\",\n    \"created_at\": \"2018-05-08T14:34:31.174Z\",\n    \"updated_at\": \"2018-05-08T14:34:31.174Z\"\n  },\n  {\n    \"id\": 4765,\n    \"owner_id\": 426,\n    \"name\": \"Remote Gel Viewer\",\n    \"description\": \"Quam sed consequatur placeat laudantium voluptatem. Cum mollitia velit eius vel esse quia impedit est. Ipsa aut vero voluptates ratione. Veniam dolorem nulla fugit enim quo cumque quia.\",\n    \"created_at\": \"2018-05-08T14:34:31.177Z\",\n    \"updated_at\": \"2018-05-08T14:34:31.177Z\"\n  },\n  {\n    \"id\": 4766,\n    \"owner_id\": 426,\n    \"name\": \"Power Output Adapter\",\n    \"description\": \"Porro qui et facere eveniet dolor quas natus voluptatem. Magni eos ut ullam ad alias earum dolore itaque. Sint explicabo voluptas aliquam odio nemo at. Nostrum accusantium nihil voluptatem facilis recusandae.\",\n    \"created_at\": \"2018-05-08T14:34:31.182Z\",\n    \"updated_at\": \"2018-05-08T14:34:31.182Z\"\n  },\n  {\n    \"id\": 4767,\n    \"owner_id\": 426,\n    \"name\": \"GPS System\",\n    \"description\": \"Delectus a esse accusamus ut temporibus voluptas sed. Itaque deserunt officia quia autem doloremque veritatis et illum. Consequatur itaque in excepturi et odit.\",\n    \"created_at\": \"2018-05-08T14:34:31.186Z\",\n    \"updated_at\": \"2018-05-08T14:34:31.186Z\"\n  },\n  {\n    \"id\": 4768,\n    \"owner_id\": 426,\n    \"name\": \"Output HD Kit\",\n    \"description\": \"Enim tenetur qui id et non. Amet laudantium possimus totam earum. Quia odio non quo id laboriosam voluptatem sint voluptatibus. Rerum nisi voluptatem sint dolor quis doloribus facere et. Adipisci est aut excepturi laboriosam esse facilis.\",\n    \"created_at\": \"2018-05-08T14:34:31.189Z\",\n    \"updated_at\": \"2018-05-08T14:34:31.189Z\"\n  },\n  {\n    \"id\": 4769,\n    \"owner_id\": 426,\n    \"name\": \"Digital Receiver\",\n    \"description\": \"Cupiditate quia blanditiis iure ut quam praesentium ipsa. Deleniti neque aut vero voluptatem nihil cupiditate ratione eaque. Omnis iste nihil voluptatum autem dolor quo molestiae.\",\n    \"created_at\": \"2018-05-08T14:34:31.194Z\",\n    \"updated_at\": \"2018-05-08T14:34:31.194Z\"\n  },\n  {\n    \"id\": 4770,\n    \"owner_id\": 426,\n    \"name\": \"Auto Portable Component\",\n    \"description\": \"Amet laudantium aperiam esse molestiae labore maxime vel. Magni et eum laboriosam voluptas dolor quod aperiam. Ut voluptatibus est eum sint nam dolorem libero enim. Aut ratione eum dolorem corporis. Dolor ab porro eius accusamus accusantium.\",\n    \"created_at\": \"2018-05-08T14:34:31.198Z\",\n    \"updated_at\": \"2018-05-08T14:34:31.198Z\"\n  }\n]",
+      "response_headers": {
+        "Link": "<http://example.org/items?page=2>; rel=\"last\", <http://example.org/items?page=2>; rel=\"next\"",
+        "Per-Page": "10",
+        "Total": "11",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"b2273c04d543f9b123d4e03925e02358\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "9fbae52d-af37-46dc-8c09-40e35a55b413",
+        "X-Runtime": "0.004624",
+        "Content-Length": "3499"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

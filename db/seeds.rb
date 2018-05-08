@@ -1,9 +1,9 @@
 require 'ffaker'
 
 # Cities
-#10.times do
-#  City.create(name: FFaker::Address.city)
-#end
+10.times do
+ City.create(name: FFaker::Address.city)
+end
 
 # Users
 20.times do
@@ -17,13 +17,13 @@ require 'ffaker'
 end
 
 # Items
-40.times do |n|
-  Item.create(
-    owner_id: rand(1..20),
-    name: "Item##{n+1}",
-    description: FFaker::Lorem.paragraph
-  )
-end
+ 40.times do |n|
+   Item.create(
+     owner_id: rand(1..20),
+     name: "Item##{n+1}",
+     description: FFaker::Lorem.phrase
+   )
+ end
 
 # Not completed bookings
 10.times do

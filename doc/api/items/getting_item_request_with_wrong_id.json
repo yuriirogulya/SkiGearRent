@@ -1,0 +1,17 @@
+{
+  "resource": "Items",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "/items/:wrong_id",
+  "description": "Getting item request with wrong id",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+
+  ]
+}

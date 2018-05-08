@@ -1,0 +1,40 @@
+{
+  "resource": "Items",
+  "resource_explanation": null,
+  "http_method": "DELETE",
+  "route": "/items/:item_id",
+  "description": "Getting item destroy action request",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "/items/4785",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {
+        "Cache-Control": "no-cache",
+        "X-Request-Id": "e37fbb34-2241-46d2-8283-2da08c4289cb",
+        "X-Runtime": "0.004890"
+      },
+      "response_content_type": null,
+      "curl": null
+    }
+  ]
+}

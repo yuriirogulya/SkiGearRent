@@ -1,0 +1,66 @@
+{
+  "resources": [
+    {
+      "name": "Items",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Getting 1st page with 10 items per page request",
+          "link": "items/getting_1st_page_with_10_items_per_page_request.json",
+          "groups": "all",
+          "route": "/items",
+          "method": "get"
+        },
+        {
+          "description": "Getting all items request",
+          "link": "items/getting_all_items_request.json",
+          "groups": "all",
+          "route": "/items",
+          "method": "get"
+        },
+        {
+          "description": "Getting item create action request",
+          "link": "items/getting_item_create_action_request.json",
+          "groups": "all",
+          "route": "/items?name=item_name",
+          "method": "post"
+        },
+        {
+          "description": "Getting item create action request without name",
+          "link": "items/getting_item_create_action_request_without_name.json",
+          "groups": "all",
+          "route": "/items?description=item_description",
+          "method": "post"
+        },
+        {
+          "description": "Getting item destroy action request",
+          "link": "items/getting_item_destroy_action_request.json",
+          "groups": "all",
+          "route": "/items/:item_id",
+          "method": "delete"
+        },
+        {
+          "description": "Getting item request by id",
+          "link": "items/getting_item_request_by_id.json",
+          "groups": "all",
+          "route": "/items/:items_id",
+          "method": "get"
+        },
+        {
+          "description": "Getting item request with wrong id",
+          "link": "items/getting_item_request_with_wrong_id.json",
+          "groups": "all",
+          "route": "/items/:wrong_id",
+          "method": "get"
+        },
+        {
+          "description": "Getting items request with wrong page",
+          "link": "items/getting_items_request_with_wrong_page.json",
+          "groups": "all",
+          "route": "/items?page=100",
+          "method": "get"
+        }
+      ]
+    }
+  ]
+}
