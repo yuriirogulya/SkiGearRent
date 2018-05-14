@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20180514125047) do
     t.index ["category_id"], name: "index_filters_on_category_id"
   end
 
-  create_table "item_options", force: :cascade do |t|
+  create_table "items_options", force: :cascade do |t|
     t.bigint "item_id"
     t.bigint "option_id"
     t.index ["item_id"], name: "index_item_options_on_item_id"
