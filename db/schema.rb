@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180429064658) do
+ActiveRecord::Schema.define(version: 20180514125047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,10 +28,31 @@ ActiveRecord::Schema.define(version: 20180429064658) do
     t.index ["renter_id"], name: "index_bookings_on_renter_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "filters", force: :cascade do |t|
+    t.integer "category_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_filters_on_category_id"
+  end
+
+  create_table "item_options", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "option_id"
+    t.index ["item_id"], name: "index_item_options_on_item_id"
+    t.index ["option_id"], name: "index_item_options_on_option_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -40,7 +61,17 @@ ActiveRecord::Schema.define(version: 20180429064658) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["owner_id"], name: "index_items_on_owner_id"
+  end
+
+  create_table "options", force: :cascade do |t|
+    t.integer "filter_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["filter_id"], name: "index_options_on_filter_id"
   end
 
   create_table "reviews", force: :cascade do |t|
