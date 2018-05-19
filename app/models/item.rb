@@ -7,4 +7,7 @@ class Item < ApplicationRecord
   has_one :city, through: :user
 
   validates_presence_of :name, :owner
+
+  scope :with_name,     -> (name) { where("name like ?", "%#{name}%")}
+  scope :with_category, -> (category) { joins(:category).where('categories.name' => "#{category}") }
 end

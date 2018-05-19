@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180514125047) do
+ActiveRecord::Schema.define(version: 20180519080710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,13 +48,6 @@ ActiveRecord::Schema.define(version: 20180514125047) do
     t.index ["category_id"], name: "index_filters_on_category_id"
   end
 
-  create_table "items_options", force: :cascade do |t|
-    t.bigint "item_id"
-    t.bigint "option_id"
-    t.index ["item_id"], name: "index_item_options_on_item_id"
-    t.index ["option_id"], name: "index_item_options_on_option_id"
-  end
-
   create_table "items", force: :cascade do |t|
     t.integer "owner_id"
     t.string "name"
@@ -64,6 +57,13 @@ ActiveRecord::Schema.define(version: 20180514125047) do
     t.integer "category_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["owner_id"], name: "index_items_on_owner_id"
+  end
+
+  create_table "items_options", id: false, force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "option_id", null: false
+    t.index ["item_id", "option_id"], name: "index_items_options_on_item_id_and_option_id"
+    t.index ["option_id", "item_id"], name: "index_items_options_on_option_id_and_item_id"
   end
 
   create_table "options", force: :cascade do |t|

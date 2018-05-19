@@ -5,6 +5,11 @@ require 'ffaker'
  City.create(name: FFaker::Address.city)
 end
 
+# Categories
+10.times do |n|
+  Category.create(name: "Category ##{n+1}")
+end
+
 # Users
 20.times do
   name = FFaker::Internet.user_name
@@ -21,15 +26,16 @@ end
    Item.create(
      owner_id: rand(1..20),
      name: "Item##{n+1}",
-     description: FFaker::Lorem.phrase
+     description: FFaker::Lorem.phrase,
+     category_id: rand(1..10)
    )
  end
 
 # Not completed bookings
 10.times do
   Booking.create(
-    renter_id: rand(1..6),
-    item_id: rand(1..12),
+    renter_id: rand(1..20),
+    item_id: rand(1..40),
     price: rand(1_000..10_000),
     start_date: FFaker::Time.between(2.days.ago, Time.now),
     end_date: FFaker::Time.between(5.days.after, 10.days.after),
@@ -40,8 +46,8 @@ end
 # Completed bookings
 10.times do
   Booking.create(
-    renter_id: rand(1..6),
-    item_id: rand(1..12),
+    renter_id: rand(1..20),
+    item_id: rand(1..40),
     price: rand(1_000..10_000),
     start_date: FFaker::Time.between(3.month.ago, 2.month.ago),
     end_date: FFaker::Time.between(2.month.ago, 1.month.ago),
