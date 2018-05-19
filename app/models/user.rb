@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  belongs_to :city
+  belongs_to :city, optional: true
   has_many :items, foreign_key: 'owner_id'
   has_many :bookings, foreign_key: 'renter_id'
   has_many :reviews, as: :reviewable

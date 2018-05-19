@@ -42,15 +42,3 @@ end
     completed: false
   )
 end
-
-# Completed bookings
-10.times do
-  Booking.create(
-    renter_id: rand(1..20),
-    item_id: rand(1..40),
-    price: rand(1_000..10_000),
-    start_date: FFaker::Time.between(3.month.ago, 2.month.ago),
-    end_date: FFaker::Time.between(2.month.ago, 1.month.ago),
-    completed: true
-  )
-end

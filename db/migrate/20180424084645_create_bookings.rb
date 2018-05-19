@@ -6,7 +6,7 @@ class CreateBookings < ActiveRecord::Migration[5.1]
       t.integer :price
       t.date :start_date
       t.date :end_date
-      t.boolean :completed
+      t.boolean :completed, default: false
 
       t.timestamps
     end

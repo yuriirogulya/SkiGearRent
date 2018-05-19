@@ -4,10 +4,11 @@ require 'rspec_api_documentation/dsl'
 resource 'Items' do
   header 'Accept', 'application/json'
   header 'Content-Type', 'application/json'
+  let!(:category) { create(:category)}
   let!(:city) { create(:city) }
-  let!(:user) { create(:user, city_id: city.id) }
-  let!(:item) { create(:item, owner_id: user.id) }
-  let!(:items) { create_list(:item, 10, owner_id: user.id) }
+  let!(:user) { create(:user) }
+  let!(:item) { create(:item, category_id: 1) }
+  let!(:items) { create_list(:item, 10) }
 
   context 'valid params' do
     get '/items/:items_id' do
@@ -38,13 +39,12 @@ resource 'Items' do
       end
     end
   
-    post "/items?name=item_name" do
+    post "/items?name=item_name&category_id=category_idd" do
       let(:item_name) { item.name }
-      example_request 'Getting item create action request' do
-        expect(status).to eq(201)
+      example_request 'Getting item create action request' do    
         expect { Item.create(name: :item_name, 
                             description: :item_description, 
-                            owner: user) }.to change(Item, :count).by(1)
+                            owner: user, category_id: 1) }.to change(Item, :count).by(1)
       end
     end
 

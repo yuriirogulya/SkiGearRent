@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20180519080710) do
     t.integer "price"
     t.date "start_date"
     t.date "end_date"
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_bookings_on_item_id"
