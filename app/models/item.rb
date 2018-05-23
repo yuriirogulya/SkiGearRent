@@ -8,7 +8,12 @@ class Item < ApplicationRecord
 
   validates_presence_of :name, :owner
 
-  scope :with_name,     -> (name)     { where('name like ?', "%#{name}%") }
+  scope :with_name,     -> (name)     { where('name ilike ?', "%#{name}%") }
   scope :with_category, -> (category) { joins(:category).where('category_id = ?',  category) }
-  scope :with_option,   -> (option)   { joins(:items_options).where(items_options: { option_id: option }) }
+  scope :with_option,   -> (option)   { joins(:items_options).where('option_id = ?', option) }
+  scope :with_price, -> (min, max, days) do
+    t = arel_table
+    total_price = t[:daily_price] * days
+    where(total_price.gteq(min).and(total_price.lteq(max)))
+  end
 end
