@@ -25,7 +25,7 @@ class Item < ApplicationRecord
   
   scope :with_price, -> (min, max, days) do
     i = arel_table
-    total_price = i[:daily_price] * days
+    total_price = i[:daily_price] * days.to_i
     where(total_price.in(min..max))
   end
 
