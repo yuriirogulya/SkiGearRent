@@ -8,10 +8,21 @@ class Item < ApplicationRecord
 
   validates_presence_of :name, :owner
 
-  scope :with_name,     -> (name)     { where('name ilike ?', "%#{name}%") }
-  scope :with_category, -> (category) { joins(:category).where('category_id = ?',  category) }
-  scope :with_option,   -> (option)   { joins(:items_options).where('option_id = ?', option) }
+  scope :with_name, -> (name) do
+    i = arel_table
+    where(i[:name].matches("%#{name}%"))
+  end
 
+  scope :with_category, -> (category) do
+    c = Category.arel_table
+    joins(:category).where(c[:id].eq(category))
+  end
+
+  scope :with_option, -> (option) do
+    io = Arel::Table.new(:items_options) 
+    joins(:items_options).where(io[:option_id].eq(option))
+  end
+  
   scope :with_price, -> (min, max, days) do
     i = arel_table
     total_price = i[:daily_price] * days

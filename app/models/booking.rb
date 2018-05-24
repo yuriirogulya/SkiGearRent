@@ -2,7 +2,7 @@ class Booking < ApplicationRecord
   belongs_to :renter, class_name: 'User', foreign_key: 'renter_id'
   belongs_to :item
 
-  validates :price, format: { with: /\A\d+\z/ }
+  validates :price, numericality: { only_integer: true }
   validates_presence_of :price, :start_date, :end_date
   validate :start_date_cannot_be_in_the_past, :end_date_cannot_be_before_start_date
 
