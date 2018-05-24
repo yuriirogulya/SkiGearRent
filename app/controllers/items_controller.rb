@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   has_scope :with_name, as: :name
   has_scope :with_category, as: :category
   has_scope :with_option, as: :option
-  has_scope :with_price, as: :price, using: %i[min max days], type: :hash, :default => [1]              
+  has_scope :with_price, as: :price, using: %i[min max days], type: :hash              
   has_scope :available, using: %i[start_date end_date], type: :hash
   
   # GET /items
@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
     user = User.first
     item = user.items.new(item_params)
     if item.save
+      item.options << Option.find(params[:options]) if params[:options]
       render json: item.as_json, status: :created
     else
       render json: { errors: item.errors.full_messages }, status: :unprocessable_entity
@@ -32,6 +33,8 @@ class ItemsController < ApplicationController
   # PUT /items/:id
   def update
     if item.update(item_params)
+      item.options.clear
+      item.options << Option.find(params[:options]) if params[:options]
       head :no_content
     else
       render json: { errors: item.errors.full_messages }, status: :unprocessable_entity
@@ -47,7 +50,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.permit(:name, :description, :owner, :category, :options => [])
+    params.permit(:name, :description, :owner_id, :category_id, :daily_price)
   end
 
   def set_item
