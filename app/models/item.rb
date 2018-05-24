@@ -15,7 +15,7 @@ class Item < ApplicationRecord
   scope :with_price, -> (min, max, days) do
     i = arel_table
     total_price = i[:daily_price] * days
-    where(total_price.in(min..max)) #переписати на IN range min..max
+    where(total_price.in(min..max))
   end
 
   scope :booked, -> (start_date, end_date) do
