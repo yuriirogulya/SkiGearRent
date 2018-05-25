@@ -18,18 +18,14 @@ class Item < ApplicationRecord
     joins(:category).where(c[:id].eq(category))
   end
 
-  scope :with_option, -> (option) do
+  scope :with_options, -> (options) do
     io = Arel::Table.new(:items_options) 
-    joins(:items_options).where(io[:option_id].eq(option))
+    joins(:items_options).where(io[:option_id].in(options))
   end
   
   scope :with_price, -> (min, max, days) do
     i = arel_table
-    if days.present?
-      total_price = i[:daily_price] * days.to_i
-    else
-      total_price = i[:daily_price]
-    end
+    total_price = days.present? ? i[:daily_price] * days.to_i : i[:daily_price]
     where(total_price.in(min..max))
   end
 

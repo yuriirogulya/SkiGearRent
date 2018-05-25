@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
   has_scope :with_name, as: :name
   has_scope :with_category, as: :category
-  has_scope :with_option, as: :option
+  has_scope :with_options, as: :options, type: :array
   has_scope :with_price, as: :price, using: %i[min max days], type: :hash              
   has_scope :available, using: %i[start_date end_date], type: :hash
   
@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.permit(:name, :description, :owner_id, :category_id, :daily_price)
+    params.require(:items).permit(:name, :description, :owner_id, :category_id, :daily_price)
   end
 
   def set_item
