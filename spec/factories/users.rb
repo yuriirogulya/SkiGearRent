@@ -1,9 +1,8 @@
 FactoryBot.define do
-  factory :user do
-    id 1
+  factory :user, aliases: [:owner, :renter] do
     username { FFaker::Internet.user_name }
     email { "#{username}@example.com".downcase }
     password { FFaker::Internet.password }
-    city_id 1
+    city
   end
 end
