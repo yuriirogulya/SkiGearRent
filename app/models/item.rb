@@ -8,22 +8,21 @@ class Item < ApplicationRecord
 
   validates_presence_of :name, :owner
 
-  scope :with_name, -> (name) do
+  scope :by_name, -> (name) do
     i = arel_table
     where(i[:name].matches("%#{name}%"))
   end
 
-  scope :with_category, -> (category) do
-    c = Category.arel_table
-    joins(:category).where(c[:id].eq(category))
+  scope :by_category, -> (category) do
+    where(category: category)
   end
 
-  scope :with_options, -> (options) do
+  scope :by_options, -> (options) do
     io = Arel::Table.new(:items_options) 
     joins(:items_options).where(io[:option_id].in(options))
   end
   
-  scope :with_price, -> (min, max, days) do
+  scope :by_price, -> (min, max, days = 1) do
     i = arel_table
     total_price = days.present? ? i[:daily_price] * days.to_i : i[:daily_price]
     where(total_price.in(min..max))
