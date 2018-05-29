@@ -1,12 +1,13 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-  has_scope :with_name, as: :name
-  has_scope :with_category, as: :category
-  has_scope :with_options, as: :options, type: :array
-  has_scope :with_price, as: :price, using: %i[min max days], type: :hash              
+  has_scope :by_name, as: :name
+  has_scope :by_category, as: :category
+  has_scope :by_options, as: :options, type: :array
+  has_scope :by_price, as: :price, using: %i[min max days], type: :hash              
   has_scope :available, using: %i[start_date end_date], type: :hash
-  
+  has_scope :booked, using: %i[start_date end_date], type: :hash
+
   # GET /items
   def index
     items = apply_scopes(Item).all
@@ -50,7 +51,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :owner_id, :category_id, :daily_price)
+    params.permit(:name, :description, :owner_id, :category_id, :daily_price)
   end
 
   def set_item
